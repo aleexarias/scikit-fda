@@ -29,8 +29,10 @@ class FPCA(  # noqa: WPS230 (too many public attributes)
 
     Class that implements functional principal component analysis for both
     basis and grid representations of the data. The parameters are shared
-    when fitting a FDataBasis or FDataGrid, except for
-    ``components_basis``.
+    when fitting a FDataBasis or FDataGrid, except for ``components_basis``.
+
+    For more information about the implementation of the computation of the
+    first principal components see :footcite:ts:`silverman_2005_basisfuncexp`.
 
     Parameters:
         n_components: Number of principal components to keep from
@@ -88,6 +90,10 @@ class FPCA(  # noqa: WPS230 (too many public attributes)
         >>> fd = FDataGrid(data_matrix, grid_points)
         >>> fpca_grid = FPCA(2)
         >>> fpca_grid = fpca_grid.fit(fd)
+
+    References:
+        .. footbibliography::
+
     """
 
     def __init__(
@@ -137,7 +143,7 @@ class FPCA(  # noqa: WPS230 (too many public attributes)
 
         The eigenvalues associated with these principal components are also
         saved. For more details about how it is implemented please view the
-        referenced book.
+        book referenced in the class docstring.
 
         Args:
             X: The functional data object to be analysed.
@@ -145,11 +151,6 @@ class FPCA(  # noqa: WPS230 (too many public attributes)
 
         Returns:
             self
-
-        References:
-            .. [RS05-8-4-2] Ramsay, J., Silverman, B. W. (2005). Basis function
-                expansion of the functions. In *Functional Data Analysis*
-                (pp. 161-164). Springer.
 
         """
         # the maximum number of components is established by the target basis
