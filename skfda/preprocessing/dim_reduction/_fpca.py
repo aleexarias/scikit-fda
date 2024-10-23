@@ -141,10 +141,6 @@ class FPCA(  # noqa: WPS230 (too many public attributes)
         """
         Compute the first n_components principal components and saves them.
 
-        The eigenvalues associated with these principal components are also
-        saved. For more details about how it is implemented please view the
-        book referenced in the class docstring.
-
         Args:
             X: The functional data object to be analysed.
             y: Ignored.
@@ -309,11 +305,6 @@ class FPCA(  # noqa: WPS230 (too many public attributes)
 
         Returns:
             self.
-
-        References:
-            .. [RS05-8-4-1] Ramsay, J., Silverman, B. W. (2005). Discretizing
-                the functions. In *Functional Data Analysis* (p. 161).
-                Springer.
 
         """
         # check that the number of components is smaller than the sample size
